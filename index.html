@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background-color:rgb(212, 241, 183);}
+        .main{height:300px;width:500px;margin:auto;}
+        table{height:300px;width:500px;border-collapse:collapse;}
+        .ab{font-size:35px;color:red;text-align:center;background-color:rgb(97, 238, 97);}
+        input[type=number]{height:100%;width:98%;font-size:35px;color:red;background-color:rgb(97, 238, 97);}
+        input[type=reset]{height:100%;width:100%;font-size:35px;color:red;background-color:rgb(97, 238, 97);}
+        #hd1{color:rgb(10, 160, 10);}
+        #mn{color:Green;font-size:25px;}
+
+        @media only screen and (max-width:768px){
+            .main{height:400px;width:400px;}
+            table{height:400px;width:400px;}
+            .ab{font-size:20px;}
+            input[type=number]{font-size:20px;}
+            input[type=reset]{font-size:20px;}
+            #mn{font-size:28px;}
+        }
+
+        @media only screen and (max-width:426px){
+            .main{height:300px;width:300px;}
+            table{height:300px;width:300px;}
+            .ab{font-size:18px;}
+            input[type=number]{font-size:18px;}
+            input[type=reset]{font-size:18px;}
+            #mn{font-size:17px;}
+        }
+    </style>
+</head>
+<body>
+    <script>
+        //Celsius to other measurements
+        function JS(){
+            var c=parseFloat(document.getElementById("p1").value);
+            var f=(9*c)/5+32;
+            document.getElementById("p2").value=f;
+            var k=c+273.15;
+            document.getElementById("p3").value=k;
+            var r=(c*4)/5;
+            document.getElementById("p4").value=r;
+        }
+        //Fahrenheit to other measurements
+        function JAS(){
+            var f=parseFloat(document.getElementById("p2").value);
+            var c=5*(f-32)/9;
+            document.getElementById("p1").value=c;
+            var k=(f-32)*5/9+273.15;
+            document.getElementById("p3").value=k;
+            var r=(f-32)/2.25;
+            document.getElementById("p4").value=r;
+        }
+        //Kelvin to other measurements
+        function JAVA(){
+            var k=parseFloat(document.getElementById("p3").value);
+            var c=k-273.15;
+            document.getElementById("p1").value=c;
+            var f=(k-273.15)*9/5+32;
+            document.getElementById("p2").value=f;
+            var r=(k-273.15)*0.8;
+            document.getElementById("p4").value=r;
+        }
+        //Reaumur to other measurements
+        function JAVASCRIPT(){
+            var r=parseFloat(document.getElementById("p4").value);
+            var c=(1.25*r);
+            document.getElementById("p1").value=c;
+            var f=(r*2.25)+32;
+            document.getElementById("p2").value=f;
+            var k=(r*1.25)+273.15;
+            document.getElementById("p3").value=k;
+        }
+    </script>
+    <div class="main">
+           <h1 id="hd1">Temperature</h1>
+           <p id="mn">Temperature tells you how hot or cold something is. It's like a measure of how much heat is in the air or in an object. When it's hot outside, the temperature is high, and when it's cold, the temperature is low. Temperature is important because it affects how we feel and how things around us behave.</p>
+    </div><br>
+    <div class="main">
+    <form>
+        <table border="2px">
+            <tr>
+                <td class="ab">Celsius:</td>
+                <td><input type="number" id="p1" oninput="JS()"></td>
+            </tr>
+            <tr>
+                <td class="ab">Fahrenheit:</td>
+                <td><input type="number" id="p2" oninput="JAS()"></td>
+            </tr>
+            <tr>
+                <td class="ab">Kelvin:</td>
+                <td><input type="number" id="p3" oninput="JAVA()"></td>
+            </tr>
+            <tr>
+                <td class="ab">Reaumur:</td>
+                <td><input type="number" id="p4" oninput="JAVASCRIPT()"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="reset" value="Clear" ></td>
+            </tr>
+        </table>
+    </form>
+    </div>
+</body>
+</html>
